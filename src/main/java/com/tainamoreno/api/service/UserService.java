@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 
-import com.tainamoreno.api.entity.User;
+import com.tainamoreno.api.security.entity.User;
 
 public interface UserService {
 	

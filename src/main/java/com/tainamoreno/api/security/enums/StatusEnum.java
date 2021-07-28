@@ -1,4 +1,4 @@
-package com.tainamoreno.helpdesk.api.enums;
+package com.tainamoreno.api.security.enums;
 
 public enum StatusEnum {
 

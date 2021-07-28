@@ -9,9 +9,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import com.tainamoreno.api.entity.User;
 import com.tainamoreno.api.service.UserService;
 import com.tainamoreno.api.repository.UserRepository;
+import com.tainamoreno.api.security.entity.User;
 
 @Component
 public class UserServiceImpl implements UserService{

@@ -1,14 +1,15 @@
-package com.tainamoreno.api.entity;
+package com.tainamoreno.api.security.entity;
 
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.tainamoreno.helpdesk.api.enums.PriorityEnum;
-import com.tainamoreno.helpdesk.api.enums.StatusEnum;
+import com.tainamoreno.api.security.enums.PriorityEnum;
+import com.tainamoreno.api.security.enums.StatusEnum;
 
 @Document
 public class Ticket {
@@ -34,6 +35,7 @@ public class Ticket {
 	
 	private String image;
 	
+	@Transient //será ignorado no banco de dados
 	private List<ChangeStatus> changes;
 
 	public String getId() {

@@ -1,26 +1,28 @@
 package com.tainamoreno.api.repository;
 
-import java.awt.print.Pageable;
+
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.tainamoreno.api.entity.Ticket;
+import com.tainamoreno.api.security.entity.Ticket;
 
 public interface TicketRepository extends MongoRepository<Ticket, String>{
 	
 	//Filtrar pelo Id e ordenar pela data
 	Page<Ticket>findByUserIdOrderByDateDesc(Pageable pages, String userId);
 	
-	Page<Ticket>findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingOrderByDateDesc(
+	Page<Ticket>findByTitleIgnoreCaseContainingAndStatusAndPriorityOrderByDateDesc(
 			String title, String status, String priority, Pageable pages);
 	
 	//Filtro para usuário pesquisar seu tickets
-	Page<Ticket>findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingAndUserIdOrderByDateDesc(
+	//containing equivale ao like do sql
+	Page<Ticket>findByTitleIgnoreCaseContainingAndStatusAndPriorityAndUserIdOrderByDateDesc(
 			String title, String status, String priority, Pageable pages);
 	
 	//Filtro para usuário pesquisar seu tickets
-	Page<Ticket>findByTitleIgnoreCaseContainingAndStatusIgnoreCaseContainingAndPriorityIgnoreCaseContainingAndAssignedUserIdOrderByDateDesc(
+	Page<Ticket>findByTitleIgnoreCaseContainingAndStatusAndPriorityAndAssignedUserIdOrderByDateDesc(
 				String title, String status, String priority, Pageable pages);
 	
 	//Filtrar pelo numero	
